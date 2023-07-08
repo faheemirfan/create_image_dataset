@@ -38,6 +38,9 @@ jobs:
       run: |
         mkdir resources
         cp -r test/resources/EuroSAT_RGB resources
+    - name: List the files
+      run: |
+        ls -r resources/EuroSAT_RGB
     - name: Test with pytest
       run: |
         export PYTHONPATH=src
