@@ -20,6 +20,7 @@ def test_init(dataset_obj):
 def test_read_image_and_convert_to_array(dataset_obj):
     image_path = 'resources/EuroSAT_RGB/AnnualCrop/AnnualCrop_1.jpg'
     img_array = dataset_obj.read_image_and_convert_to_array(image_path)
+    print(img_array)
 
     assert isinstance(img_array,np.ndarray)
     assert img_array.shape == (64,64,3)
