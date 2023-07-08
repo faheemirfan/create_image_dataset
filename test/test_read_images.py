@@ -15,7 +15,7 @@ def dataset_obj():
 def test_init(dataset_obj):
     assert dataset_obj.image_dataset==[]
     assert dataset_obj.image_labels==[]
-    assert dataset_obj.images_folder==image_folder
+    assert dataset_obj.images_folder==os.path.abspath(image_folder)
 
 def test_read_image_and_convert_to_array(dataset_obj):
     image_path = os.path.abspath('resources/EuroSAT_RGB/AnnualCrop/AnnualCrop_1.jpg')
