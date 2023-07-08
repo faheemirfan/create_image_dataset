@@ -4,12 +4,12 @@ import pytest
 import numpy as np
 from pathlib import Path
 from read_images import create_image_dataset
-
+import os
 image_folder = 'resources/EuroSAT_RGB'
 
 @pytest.fixture
 def dataset_obj():
-    return create_image_dataset(image_folder)
+    return create_image_dataset(os.path.abspath(image_folder))
 
 
 def test_init(dataset_obj):
