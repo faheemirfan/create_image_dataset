@@ -38,7 +38,7 @@ def test_read_all_images_in_folder(dataset_obj):
     assert all(lab==0 for lab in labels)
 
 def test_read_create_dataset():
-    dataset_obj = create_image_dataset(image_folder)
+    dataset_obj = create_image_dataset('resources/EuroSAT_RGB')
     img_array, lab_array = dataset_obj.create_dataset()
     assert len(dataset_obj.image_dataset) == 20
     assert len(dataset_obj.image_labels) == 20
