@@ -31,6 +31,9 @@ jobs:
     - name: Copy test resources
       run: |
         cp -R test/resources $GITHUB_WORKSPACE/
+    - name: List directory contents
+      run: |
+        ls -R $GITHUB_WORKSPACE/resources/EuroSAT_RGB
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
