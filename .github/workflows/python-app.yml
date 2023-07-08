@@ -30,7 +30,7 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Copy test resources
       run: |
-        cp -R test/resources/EuroSAT_RGB $GITHUB_WORKSPACE/resources
+        cp -R test/resources $GITHUB_WORKSPACE/
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
