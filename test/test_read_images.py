@@ -18,7 +18,7 @@ def test_init(dataset_obj):
     assert dataset_obj.images_folder==image_folder
 
 def test_read_image_and_convert_to_array(dataset_obj):
-    image_path = 'resources/EuroSAT_RGB/AnnualCrop/AnnualCrop_1.jpg'
+    image_path = os.path.abspath('resources/EuroSAT_RGB/AnnualCrop/AnnualCrop_1.jpg')
     img_array = dataset_obj.read_image_and_convert_to_array(image_path)
 
     assert isinstance(img_array,np.ndarray)
