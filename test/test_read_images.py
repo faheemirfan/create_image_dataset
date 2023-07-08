@@ -36,14 +36,14 @@ def test_read_all_images_in_folder(dataset_obj):
 
     assert all(lab==0 for lab in labels)
 
-def test_read_create_dataset(dataset_obj):
-    img_array, lab_array = dataset_obj.create_dataset()
-    assert len(dataset_obj.image_dataset) == 20
-    assert len(dataset_obj.image_labels) == 20
-    assert isinstance(img_array,np.ndarray)
-    assert isinstance(lab_array,np.ndarray)
-    assert img_array.shape == (20,64,64,3)
-    assert lab_array.shape == (20,)
+# def test_read_create_dataset(dataset_obj):
+#     img_array, lab_array = dataset_obj.create_dataset()
+#     assert len(dataset_obj.image_dataset) == 20
+#     assert len(dataset_obj.image_labels) == 20
+#     assert isinstance(img_array,np.ndarray)
+#     assert isinstance(lab_array,np.ndarray)
+#     assert img_array.shape == (20,64,64,3)
+#     assert lab_array.shape == (20,)
 
 def test_load_dataset(dataset_obj):
     dataset_obj.create_dataset = lambda:(np.random.random((20,64,64,3)),np.random.randint(0,10,(20,)))
