@@ -4,21 +4,21 @@ import pytest
 import numpy as np
 from pathlib import Path
 from read_images import create_image_dataset
-import os
+
 image_folder = 'resources/EuroSAT_RGB'
 
 @pytest.fixture
 def dataset_obj():
-    return create_image_dataset(os.path.abspath(image_folder))
+    return create_image_dataset(image_folder)
 
 
 def test_init(dataset_obj):
     assert dataset_obj.image_dataset==[]
     assert dataset_obj.image_labels==[]
-    assert dataset_obj.images_folder==os.path.abspath(image_folder)
+    assert dataset_obj.images_folder==image_folder
 
 def test_read_image_and_convert_to_array(dataset_obj):
-    image_path = os.path.abspath('resources/EuroSAT_RGB/AnnualCrop/AnnualCrop_1.jpg')
+    image_path = 'resources/EuroSAT_RGB/AnnualCrop/AnnualCrop_1.jpg'
     img_array = dataset_obj.read_image_and_convert_to_array(image_path)
 
     assert isinstance(img_array,np.ndarray)
@@ -53,5 +53,3 @@ def test_load_dataset(dataset_obj):
     assert test_data.shape == (4,64,64,3)
     assert train_labels.shape == (16,)
     assert test_labels.shape == (4,)
-
-
