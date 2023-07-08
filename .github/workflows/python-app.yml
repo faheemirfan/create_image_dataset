@@ -40,4 +40,5 @@ jobs:
     - name: Test with pytest
       run: |
         export PYTHONPATH=src
-        test/pytest
+        cd test
+        pytest
