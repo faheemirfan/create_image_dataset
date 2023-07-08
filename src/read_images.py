@@ -14,7 +14,7 @@ logger.add(sys.stderr,level="DEBUG")
 
 
 
-MAIN_FOLDER_PATH="/home/faheem/Learning/Tensorflow/repo/tf_learning/fourth_week/EuroSAT_RGB"
+MAIN_FOLDER_PATH="/home/faheem/Learning/unit_testing/create_image_dataset/test/resources/EuroSAT_RGB"
 IMAGE_EXTENSIONS=['.jpg','.png']
 
 
@@ -55,14 +55,13 @@ class create_image_dataset():
 
         combine_images_labels = list(zip(images_data,labels))
         random.shuffle(combine_images_labels)
-        images_data, labels = zip(*combine_images_labels)
-        self.image_dataset = np.stack(images_data)
-        self.image_labels = np.stack(labels)
+        self.image_dataset, self.image_labels = map(list,zip(*combine_images_labels))
+        return np.array(self.image_dataset), np.array(self.image_labels)
 
     def load_dataset(self,testSize=0.1 ):
-        self.create_dataset()
-        train_data,test_data,train_labels,test_labels = train_test_split(self.image_dataset,
-                                                                         self.image_labels,
+        image_array, label_array = self.create_dataset()
+        train_data,test_data,train_labels,test_labels = train_test_split(image_array,
+                                                                         label_array,
                                                                          test_size=testSize,
                                                                          random_state=42)
         train_labels = train_labels.astype(np.uint8)
