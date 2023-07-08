@@ -39,6 +39,5 @@ jobs:
         ls -r 
     - name: Test with pytest
       run: |
-        export PYTHONPATH=src
         cd test
         pytest
