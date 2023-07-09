@@ -48,7 +48,7 @@ class create_image_dataset():
         labels = []
         list_folders = sorted(os.listdir(self.images_folder))
         for i,folder_name in enumerate(list_folders):
-            folder_path = Path(MAIN_FOLDER_PATH,folder_name)
+            folder_path = Path(self.images_folder,folder_name)
             read_images,read_labels = self.read_all_images_in_folder(folder_path,i)
             images_data.extend(read_images)
             labels.extend(read_labels)
